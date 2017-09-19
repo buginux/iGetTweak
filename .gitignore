@@ -61,11 +61,13 @@ iOSInjectionProject/
 ### THEOS-Tweak ###
 ._*
 *.deb
+*.zip
 .debmake
 _
 obj
 .theos
 .DS_Store
+LatestBuild
 
 ### Xcode ###
 # Xcode
