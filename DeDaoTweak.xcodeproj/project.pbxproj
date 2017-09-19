@@ -1,0 +1,363 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		23F25ABC1F71497300F790FE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F25ABB1F71497300F790FE /* UIKit.framework */; };
+		23F25ABE1F71497300F790FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F25ABD1F71497300F790FE /* Foundation.framework */; };
+		23F25AC01F71497300F790FE /* CydiaSubstrate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F25ABF1F71497300F790FE /* CydiaSubstrate.framework */; };
+		23F25AC91F71497300F790FE /* DeDaoTweak.mm in Sources */ = {isa = PBXBuildFile; fileRef = 23F25AC81F71497300F790FE /* DeDaoTweak.mm */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		23F25AB81F71497300F790FE /* DeDaoTweak.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = DeDaoTweak.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		23F25ABB1F71497300F790FE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		23F25ABD1F71497300F790FE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		23F25ABF1F71497300F790FE /* CydiaSubstrate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CydiaSubstrate.framework; path = Library/Frameworks/CydiaSubstrate.framework; sourceTree = DEVELOPER_DIR; };
+		23F25AC41F71497300F790FE /* control */ = {isa = PBXFileReference; lastKnownFileType = text; name = control; path = Package/DEBIAN/control; sourceTree = "<group>"; };
+		23F25AC61F71497300F790FE /* DeDaoTweak-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DeDaoTweak-Prefix.pch"; sourceTree = "<group>"; };
+		23F25AC71F71497300F790FE /* DeDaoTweak.xm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = DeDaoTweak.xm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		23F25AC81F71497300F790FE /* DeDaoTweak.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = DeDaoTweak.mm; sourceTree = "<group>"; };
+		23F25ACD1F71497300F790FE /* DeDaoTweak.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = DeDaoTweak.plist; path = Package/Library/MobileSubstrate/DynamicLibraries/DeDaoTweak.plist; sourceTree = "<group>"; };
+		23F25AD31F714DE700F790FE /* DeDao.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeDao.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		23F25AB41F71497300F790FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23F25ABC1F71497300F790FE /* UIKit.framework in Frameworks */,
+				23F25ABE1F71497300F790FE /* Foundation.framework in Frameworks */,
+				23F25AC01F71497300F790FE /* CydiaSubstrate.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		23F25AAD1F71497200F790FE = {
+			isa = PBXGroup;
+			children = (
+				23F25AC11F71497300F790FE /* DeDaoTweak */,
+				23F25ABA1F71497300F790FE /* Frameworks */,
+				23F25AB91F71497300F790FE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		23F25AB91F71497300F790FE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				23F25AB81F71497300F790FE /* DeDaoTweak.dylib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		23F25ABA1F71497300F790FE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				23F25ABB1F71497300F790FE /* UIKit.framework */,
+				23F25ABD1F71497300F790FE /* Foundation.framework */,
+				23F25ABF1F71497300F790FE /* CydiaSubstrate.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		23F25AC11F71497300F790FE /* DeDaoTweak */ = {
+			isa = PBXGroup;
+			children = (
+				23F25AD31F714DE700F790FE /* DeDao.h */,
+				23F25AC71F71497300F790FE /* DeDaoTweak.xm */,
+				23F25AC81F71497300F790FE /* DeDaoTweak.mm */,
+				23F25AC21F71497300F790FE /* Package */,
+				23F25AC51F71497300F790FE /* Supporting Files */,
+			);
+			path = DeDaoTweak;
+			sourceTree = "<group>";
+		};
+		23F25AC21F71497300F790FE /* Package */ = {
+			isa = PBXGroup;
+			children = (
+				23F25AC31F71497300F790FE /* DEBIAN */,
+				23F25ACA1F71497300F790FE /* Library */,
+			);
+			name = Package;
+			sourceTree = "<group>";
+		};
+		23F25AC31F71497300F790FE /* DEBIAN */ = {
+			isa = PBXGroup;
+			children = (
+				23F25AC41F71497300F790FE /* control */,
+			);
+			name = DEBIAN;
+			sourceTree = "<group>";
+		};
+		23F25AC51F71497300F790FE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				23F25AC61F71497300F790FE /* DeDaoTweak-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		23F25ACA1F71497300F790FE /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				23F25ACB1F71497300F790FE /* MobileSubstrate */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
+		23F25ACB1F71497300F790FE /* MobileSubstrate */ = {
+			isa = PBXGroup;
+			children = (
+				23F25ACC1F71497300F790FE /* DynamicLibraries */,
+			);
+			name = MobileSubstrate;
+			sourceTree = "<group>";
+		};
+		23F25ACC1F71497300F790FE /* DynamicLibraries */ = {
+			isa = PBXGroup;
+			children = (
+				23F25ACD1F71497300F790FE /* DeDaoTweak.plist */,
+			);
+			name = DynamicLibraries;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		23F25AB51F71497300F790FE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		23F25AB71F71497300F790FE /* DeDaoTweak */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 23F25AD01F71497300F790FE /* Build configuration list for PBXNativeTarget "DeDaoTweak" */;
+			buildPhases = (
+				23F25AB21F71497300F790FE /* ShellScript */,
+				23F25AB31F71497300F790FE /* Sources */,
+				23F25AB41F71497300F790FE /* Frameworks */,
+				23F25AB51F71497300F790FE /* Headers */,
+				23F25AB61F71497300F790FE /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DeDaoTweak;
+			productName = DeDaoTweak;
+			productReference = 23F25AB81F71497300F790FE /* DeDaoTweak.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		23F25AAE1F71497200F790FE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				TargetAttributes = {
+					23F25AB71F71497300F790FE = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = AMCXGTYG4X;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 23F25AB11F71497200F790FE /* Build configuration list for PBXProject "DeDaoTweak" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 23F25AAD1F71497200F790FE;
+			productRefGroup = 23F25AB91F71497300F790FE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				23F25AB71F71497300F790FE /* DeDaoTweak */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		23F25AB21F71497300F790FE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/opt/MonkeyDev/bin/md --xcbp-logos";
+		};
+		23F25AB61F71497300F790FE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/opt/MonkeyDev/bin/md --xcbp";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		23F25AB31F71497300F790FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23F25AC91F71497300F790FE /* DeDaoTweak.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		23F25ACE1F71497300F790FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(MonkeyDevPath)/frameworks/**",
+					"$(MonkeyDevTheosPath)/vendor/lib",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(MonkeyDevTheosPath)/vendor/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LIBRARY_SEARCH_PATHS = "$(MonkeyDevTheosPath)/vendor/lib/**";
+				MonkeyDevPath = /opt/MonkeyDev;
+				MonkeyDevTheosPath = /opt/theos;
+				OTHER_CFLAGS = "-DTHEOS_INSTANCE_NAME=\"\\\"DeDaoTweak\\\"\"";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		23F25ACF1F71497300F790FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(MonkeyDevPath)/frameworks/**",
+					"$(MonkeyDevTheosPath)/vendor/lib",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(MonkeyDevTheosPath)/vendor/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LIBRARY_SEARCH_PATHS = "$(MonkeyDevTheosPath)/vendor/lib/**";
+				MonkeyDevPath = /opt/MonkeyDev;
+				MonkeyDevTheosPath = /opt/theos;
+				OTHER_CFLAGS = "-DTHEOS_INSTANCE_NAME=\"\\\"DeDaoTweak\\\"\"";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = NO;
+			};
+			name = Debug;
+		};
+		23F25AD11F71497300F790FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DEVELOPMENT_TEAM = AMCXGTYG4X;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DeDaoTweak/DeDaoTweak-Prefix.pch";
+				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				MonkeyDevBuildPackageOnAnyBuild = NO;
+				MonkeyDevClearUiCacheOnInstall = NO;
+				MonkeyDevCopyOnBuild = NO;
+				MonkeyDevDeviceIP = localhost;
+				MonkeyDevDevicePort = 2222;
+				MonkeyDevInstallOnAnyBuild = YES;
+				MonkeyDevInstallOnProfiling = YES;
+				MonkeyDevkillProcessOnInstall = "LuoJiFM-IOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		23F25AD21F71497300F790FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DEVELOPMENT_TEAM = AMCXGTYG4X;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DeDaoTweak/DeDaoTweak-Prefix.pch";
+				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				MonkeyDevBuildPackageOnAnyBuild = NO;
+				MonkeyDevClearUiCacheOnInstall = NO;
+				MonkeyDevCopyOnBuild = NO;
+				MonkeyDevDeviceIP = localhost;
+				MonkeyDevDevicePort = 2222;
+				MonkeyDevInstallOnAnyBuild = YES;
+				MonkeyDevInstallOnProfiling = YES;
+				MonkeyDevkillProcessOnInstall = "LuoJiFM-IOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		23F25AB11F71497200F790FE /* Build configuration list for PBXProject "DeDaoTweak" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				23F25ACE1F71497300F790FE /* Release */,
+				23F25ACF1F71497300F790FE /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		23F25AD01F71497300F790FE /* Build configuration list for PBXNativeTarget "DeDaoTweak" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				23F25AD11F71497300F790FE /* Release */,
+				23F25AD21F71497300F790FE /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 23F25AAE1F71497200F790FE /* Project object */;
+}
