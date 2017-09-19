@@ -24,7 +24,7 @@
 #define _LOGOS_RETURN_RETAINED
 #endif
 
-@class DataServiceV2; @class SubscribeSettingsViewControllerV2; 
+@class SubscribeSettingsViewControllerV2; @class DataServiceV2; 
 static void (*_logos_orig$_ungrouped$SubscribeSettingsViewControllerV2$initDatas)(_LOGOS_SELF_TYPE_NORMAL SubscribeSettingsViewControllerV2* _LOGOS_SELF_CONST, SEL); static void _logos_method$_ungrouped$SubscribeSettingsViewControllerV2$initDatas(_LOGOS_SELF_TYPE_NORMAL SubscribeSettingsViewControllerV2* _LOGOS_SELF_CONST, SEL); static void (*_logos_orig$_ungrouped$SubscribeSettingsViewControllerV2$tableView$didSelectRowAtIndexPath$)(_LOGOS_SELF_TYPE_NORMAL SubscribeSettingsViewControllerV2* _LOGOS_SELF_CONST, SEL, UITableView *, NSIndexPath *); static void _logos_method$_ungrouped$SubscribeSettingsViewControllerV2$tableView$didSelectRowAtIndexPath$(_LOGOS_SELF_TYPE_NORMAL SubscribeSettingsViewControllerV2* _LOGOS_SELF_CONST, SEL, UITableView *, NSIndexPath *); 
 static __inline__ __attribute__((always_inline)) __attribute__((unused)) Class _logos_static_class_lookup$DataServiceV2(void) { static Class _klass; if(!_klass) { _klass = objc_getClass("DataServiceV2"); } return _klass; }
 #line 5 "/Users/justwe/iOSReverse/DeDao/DeDaoTweak/DeDaoTweak/DeDaoTweak.xm"
@@ -42,10 +42,6 @@ static void _logos_method$_ungrouped$SubscribeSettingsViewControllerV2$tableView
 
 	NSString *title = self.dataArray[indexPath.section];
 	if ([title isEqualToString:@"下载文章"]) {
-		NSString *message = [NSString stringWithFormat:@"%@ - %@ - %@", self.dataArray, self.iconImageArray, self.detailData.subscribe_id];
-		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"title" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-		[alert show];
-
 		[[_logos_static_class_lookup$DataServiceV2() GetInstance] FM_GetColumnArticlesByColumnId:self.detailData.subscribe_id page:@(1) pageSize:@(20) order:@(YES) callBack:^ void (long long page, NSDictionary *data, BOOL success) {
 			NSString *msg = [NSString stringWithFormat:@"%ld - %@ - %ld", (long)page, data, (long)success];
 			UIAlertView *alt = [[UIAlertView alloc] initWithTitle:@"title" message:msg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -57,4 +53,4 @@ static void _logos_method$_ungrouped$SubscribeSettingsViewControllerV2$tableView
 
 static __attribute__((constructor)) void _logosLocalInit() {
 {Class _logos_class$_ungrouped$SubscribeSettingsViewControllerV2 = objc_getClass("SubscribeSettingsViewControllerV2"); MSHookMessageEx(_logos_class$_ungrouped$SubscribeSettingsViewControllerV2, @selector(initDatas), (IMP)&_logos_method$_ungrouped$SubscribeSettingsViewControllerV2$initDatas, (IMP*)&_logos_orig$_ungrouped$SubscribeSettingsViewControllerV2$initDatas);MSHookMessageEx(_logos_class$_ungrouped$SubscribeSettingsViewControllerV2, @selector(tableView:didSelectRowAtIndexPath:), (IMP)&_logos_method$_ungrouped$SubscribeSettingsViewControllerV2$tableView$didSelectRowAtIndexPath$, (IMP*)&_logos_orig$_ungrouped$SubscribeSettingsViewControllerV2$tableView$didSelectRowAtIndexPath$);} }
-#line 32 "/Users/justwe/iOSReverse/DeDao/DeDaoTweak/DeDaoTweak/DeDaoTweak.xm"
+#line 28 "/Users/justwe/iOSReverse/DeDao/DeDaoTweak/DeDaoTweak/DeDaoTweak.xm"
