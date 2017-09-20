@@ -11,6 +11,10 @@
 		23F25ABE1F71497300F790FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F25ABD1F71497300F790FE /* Foundation.framework */; };
 		23F25AC01F71497300F790FE /* CydiaSubstrate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F25ABF1F71497300F790FE /* CydiaSubstrate.framework */; };
 		23F25AC91F71497300F790FE /* DeDaoTweak.mm in Sources */ = {isa = PBXBuildFile; fileRef = 23F25AC81F71497300F790FE /* DeDaoTweak.mm */; };
+		23F25AD61F72A0E400F790FE /* FetchArticleListOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 23F25AD41F72A0E400F790FE /* FetchArticleListOperation.h */; };
+		23F25AD71F72A0E400F790FE /* FetchArticleListOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F25AD51F72A0E400F790FE /* FetchArticleListOperation.m */; };
+		23F25ADA1F72A2B700F790FE /* AsyncOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 23F25AD81F72A2B700F790FE /* AsyncOperation.h */; };
+		23F25ADB1F72A2B700F790FE /* AsyncOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F25AD91F72A2B700F790FE /* AsyncOperation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		23F25AC81F71497300F790FE /* DeDaoTweak.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = DeDaoTweak.mm; sourceTree = "<group>"; };
 		23F25ACD1F71497300F790FE /* DeDaoTweak.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = DeDaoTweak.plist; path = Package/Library/MobileSubstrate/DynamicLibraries/DeDaoTweak.plist; sourceTree = "<group>"; };
 		23F25AD31F714DE700F790FE /* DeDao.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeDao.h; sourceTree = "<group>"; };
+		23F25AD41F72A0E400F790FE /* FetchArticleListOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FetchArticleListOperation.h; sourceTree = "<group>"; };
+		23F25AD51F72A0E400F790FE /* FetchArticleListOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchArticleListOperation.m; sourceTree = "<group>"; };
+		23F25AD81F72A2B700F790FE /* AsyncOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncOperation.h; sourceTree = "<group>"; };
+		23F25AD91F72A2B700F790FE /* AsyncOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncOperation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +83,10 @@
 				23F25AC81F71497300F790FE /* DeDaoTweak.mm */,
 				23F25AC21F71497300F790FE /* Package */,
 				23F25AC51F71497300F790FE /* Supporting Files */,
+				23F25AD41F72A0E400F790FE /* FetchArticleListOperation.h */,
+				23F25AD51F72A0E400F790FE /* FetchArticleListOperation.m */,
+				23F25AD81F72A2B700F790FE /* AsyncOperation.h */,
+				23F25AD91F72A2B700F790FE /* AsyncOperation.m */,
 			);
 			path = DeDaoTweak;
 			sourceTree = "<group>";
@@ -135,6 +147,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23F25AD61F72A0E400F790FE /* FetchArticleListOperation.h in Headers */,
+				23F25ADA1F72A2B700F790FE /* AsyncOperation.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,7 +240,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23F25ADB1F72A2B700F790FE /* AsyncOperation.m in Sources */,
 				23F25AC91F71497300F790FE /* DeDaoTweak.mm in Sources */,
+				23F25AD71F72A0E400F790FE /* FetchArticleListOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

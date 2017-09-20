@@ -1,6 +1,7 @@
 // See http://iphonedevwiki.net/index.php/Logos
 
 #import "DeDao.h"
+#import "FetchArticleListOperation.h"
 
 %hook SubscribeSettingsViewControllerV2
 
@@ -16,11 +17,9 @@
 
 	NSString *title = self.dataArray[indexPath.section];
 	if ([title isEqualToString:@"下载文章"]) {
-		[[%c(DataServiceV2) GetInstance] FM_GetColumnArticlesByColumnId:self.detailData.subscribe_id page:@(1) pageSize:@(20) order:@(YES) callBack:^ void (long long page, NSDictionary *data, BOOL success) {
-			NSString *msg = [NSString stringWithFormat:@"%ld - %@ - %ld", (long)page, data, (long)success];
-			UIAlertView *alt = [[UIAlertView alloc] initWithTitle:@"title" message:msg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-			[alt show];
-		}];
+		NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+		FetchArticleListOperation *operation = [[FetchArticleListOperation alloc] initWithSubscribeId:self.detailData.subscribe_id page:1];
+		[queue addOperation:operation];
 	}
 }
 
