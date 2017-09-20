@@ -15,6 +15,8 @@
 		23F25AD71F72A0E400F790FE /* FetchArticleListOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F25AD51F72A0E400F790FE /* FetchArticleListOperation.m */; };
 		23F25ADA1F72A2B700F790FE /* AsyncOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 23F25AD81F72A2B700F790FE /* AsyncOperation.h */; };
 		23F25ADB1F72A2B700F790FE /* AsyncOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F25AD91F72A2B700F790FE /* AsyncOperation.m */; };
+		23F25ADE1F72ACCA00F790FE /* DownloadQueueManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 23F25ADC1F72ACCA00F790FE /* DownloadQueueManager.h */; };
+		23F25ADF1F72ACCA00F790FE /* DownloadQueueManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F25ADD1F72ACCA00F790FE /* DownloadQueueManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		23F25AD51F72A0E400F790FE /* FetchArticleListOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchArticleListOperation.m; sourceTree = "<group>"; };
 		23F25AD81F72A2B700F790FE /* AsyncOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncOperation.h; sourceTree = "<group>"; };
 		23F25AD91F72A2B700F790FE /* AsyncOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncOperation.m; sourceTree = "<group>"; };
+		23F25ADC1F72ACCA00F790FE /* DownloadQueueManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadQueueManager.h; sourceTree = "<group>"; };
+		23F25ADD1F72ACCA00F790FE /* DownloadQueueManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadQueueManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +91,8 @@
 				23F25AD51F72A0E400F790FE /* FetchArticleListOperation.m */,
 				23F25AD81F72A2B700F790FE /* AsyncOperation.h */,
 				23F25AD91F72A2B700F790FE /* AsyncOperation.m */,
+				23F25ADC1F72ACCA00F790FE /* DownloadQueueManager.h */,
+				23F25ADD1F72ACCA00F790FE /* DownloadQueueManager.m */,
 			);
 			path = DeDaoTweak;
 			sourceTree = "<group>";
@@ -147,6 +153,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23F25ADE1F72ACCA00F790FE /* DownloadQueueManager.h in Headers */,
 				23F25AD61F72A0E400F790FE /* FetchArticleListOperation.h in Headers */,
 				23F25ADA1F72A2B700F790FE /* AsyncOperation.h in Headers */,
 			);
@@ -243,6 +250,7 @@
 				23F25ADB1F72A2B700F790FE /* AsyncOperation.m in Sources */,
 				23F25AC91F71497300F790FE /* DeDaoTweak.mm in Sources */,
 				23F25AD71F72A0E400F790FE /* FetchArticleListOperation.m in Sources */,
+				23F25ADF1F72ACCA00F790FE /* DownloadQueueManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

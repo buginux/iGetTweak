@@ -3,6 +3,7 @@
 
 #import "DeDao.h"
 #import "FetchArticleListOperation.h"
+#import "DownloadQueueManager.h"
 
 
 #include <substrate.h>
@@ -28,7 +29,7 @@
 @class SubscribeSettingsViewControllerV2; 
 static void (*_logos_orig$_ungrouped$SubscribeSettingsViewControllerV2$initDatas)(_LOGOS_SELF_TYPE_NORMAL SubscribeSettingsViewControllerV2* _LOGOS_SELF_CONST, SEL); static void _logos_method$_ungrouped$SubscribeSettingsViewControllerV2$initDatas(_LOGOS_SELF_TYPE_NORMAL SubscribeSettingsViewControllerV2* _LOGOS_SELF_CONST, SEL); static void (*_logos_orig$_ungrouped$SubscribeSettingsViewControllerV2$tableView$didSelectRowAtIndexPath$)(_LOGOS_SELF_TYPE_NORMAL SubscribeSettingsViewControllerV2* _LOGOS_SELF_CONST, SEL, UITableView *, NSIndexPath *); static void _logos_method$_ungrouped$SubscribeSettingsViewControllerV2$tableView$didSelectRowAtIndexPath$(_LOGOS_SELF_TYPE_NORMAL SubscribeSettingsViewControllerV2* _LOGOS_SELF_CONST, SEL, UITableView *, NSIndexPath *); 
 
-#line 6 "/Users/justwe/iOSReverse/DeDao/DeDaoTweak/DeDaoTweak/DeDaoTweak.xm"
+#line 7 "/Users/justwe/iOSReverse/DeDao/DeDaoTweak/DeDaoTweak/DeDaoTweak.xm"
 
 
 static void _logos_method$_ungrouped$SubscribeSettingsViewControllerV2$initDatas(_LOGOS_SELF_TYPE_NORMAL SubscribeSettingsViewControllerV2* _LOGOS_SELF_CONST __unused self, SEL __unused _cmd) {
@@ -43,9 +44,8 @@ static void _logos_method$_ungrouped$SubscribeSettingsViewControllerV2$tableView
 
 	NSString *title = self.dataArray[indexPath.section];
 	if ([title isEqualToString:@"下载文章"]) {
-		NSOperationQueue *queue = [[NSOperationQueue alloc] init];
 		FetchArticleListOperation *operation = [[FetchArticleListOperation alloc] initWithSubscribeId:self.detailData.subscribe_id page:1];
-		[queue addOperation:operation];
+		[[DownloadQueueManager sharedManager] addOperation:operation];
 	}
 }
 

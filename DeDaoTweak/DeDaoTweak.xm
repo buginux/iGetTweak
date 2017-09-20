@@ -2,6 +2,7 @@
 
 #import "DeDao.h"
 #import "FetchArticleListOperation.h"
+#import "DownloadQueueManager.h"
 
 %hook SubscribeSettingsViewControllerV2
 
@@ -17,9 +18,8 @@
 
 	NSString *title = self.dataArray[indexPath.section];
 	if ([title isEqualToString:@"下载文章"]) {
-		NSOperationQueue *queue = [[NSOperationQueue alloc] init];
 		FetchArticleListOperation *operation = [[FetchArticleListOperation alloc] initWithSubscribeId:self.detailData.subscribe_id page:1];
-		[queue addOperation:operation];
+		[[DownloadQueueManager sharedManager] addOperation:operation];
 	}
 }
 
