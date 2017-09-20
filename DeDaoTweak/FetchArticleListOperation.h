@@ -10,6 +10,8 @@
 
 @interface FetchArticleListOperation : AsyncOperation
 
+@property (nonatomic, strong) NSArray *articleIds;
+
 - (instancetype)initWithSubscribeId:(NSNumber *)subscribeId page:(NSInteger)page;
 
 @end
