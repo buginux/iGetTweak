@@ -57,27 +57,27 @@ static void _logos_method$_ungrouped$SubscribeSettingsViewControllerV2$tableView
 			[[DownloadQueueManager sharedManager] addOperation:operation];
 			[[DownloadQueueManager sharedManager] waitUntilAllOperationsAreFinished];
 
-			while(operation.articleIds.count == pageSize) {
-				operation = [[FetchArticleListOperation alloc] initWithSubscribeId:self.detailData.subscribe_id page:currentPage pageSize:pageSize];
-				[[DownloadQueueManager sharedManager] addOperation:operation];
-				[[DownloadQueueManager sharedManager] waitUntilAllOperationsAreFinished];
+			
+			
+			
+			
 
-				for(NSInteger i = 0; i < operation.articleIds.count; i++) {
-					NSInteger articleId = [operation.articleIds[i] integerValue];
-					FetchArticleContentOperation *articleOperation = [[FetchArticleContentOperation alloc] initWithArticleId:articleId page:currentPage index:i];
+				
+					NSInteger articleId = [operation.articleIds[0] integerValue];
+					FetchArticleContentOperation *articleOperation = [[FetchArticleContentOperation alloc] initWithArticleId:articleId page:currentPage index:0];
 					[[DownloadQueueManager sharedManager] addOperation:articleOperation];
-				}
+				
 
-				[[DownloadQueueManager sharedManager] waitUntilAllOperationsAreFinished];
+				
 
-				++currentPage;
-			}
+			
+			
 
-			dispatch_async(dispatch_get_main_queue(), ^{
-				NSString *message = [NSString stringWithFormat:@"下载完成，共 %ld 页，每页 %ld 篇", currentPage - 1, pageSize];
-       			UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"title" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-       			[alert show];
-			});
+			
+			
+   
+   
+			
 
 		});
 	}

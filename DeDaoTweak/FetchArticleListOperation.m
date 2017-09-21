@@ -48,7 +48,7 @@
     DataServiceV2 *dataService = [objc_getClass("DataServiceV2") GetInstance];
     [dataService FM_GetColumnArticlesByColumnId:self.subscribeId page:@(self.page) pageSize:@(self.pageSize) order:@(YES) callBack:^(long long page, NSDictionary *data, BOOL success) {
         
-        if ([data count] == 0 || ![data isKindOfClass:[NSDictionary class]]) {
+        if (![data isKindOfClass:[NSDictionary class]] || [data count] == 0) {
             [self finish];
             return;
         }

@@ -50,6 +50,30 @@
     DataServiceV2 *dataService = [objc_getClass("DataServiceV2") GetInstance];
     [dataService FM_GetArticleContentById:self.articleId callBack:^(long long page, NSDictionary *data, BOOL success) {
         
+        if (![data isKindOfClass:[NSDictionary class]] || [data count] == 0) {
+            [self finish];
+            return;
+        }
+        
+        NSDictionary *article = [data objectForKey:@"c"];
+        if (!article) {
+            [self finish];
+            return;
+        }
+
+        NSString *encodeHtml = [article objectForKey:@"encodeHtml"];
+        NSString *encodekey = [article objectForKey:@"encodeKey"];
+
+        if ([encodeHtml length] == 0 || [encodekey length] == 0) {
+            [self finish];
+            return;
+        }
+
+        SubscribeInfoViewModelV2 *viewModel = [objc_getClass("SubscribeInfoViewModelV2") new];
+        NSString *aesKey = [viewModel getArticleAESKey:(long long)self.articleId articleSecret:encodekey];
+        NSData *encodeHtmlData = [encodeHtml dataUsingEncoding:NSUTF8StringEncoding];
+        NSString *content = [encodeHtmlData AES128Decrypt:aesKey];
+        
         [self finish];
     }];
     

@@ -31,3 +31,16 @@
 
 @end
 
+@interface SubscribeInfoViewModelV2 : NSObject
+
+- (id)getArticleAESKey:(long long)arg1 articleSecret:(id)arg2;
+
+@end
+
+@interface NSData (AES)
+
+- (id)AES128Decrypt:(id)arg1;
+- (id)AES128DecryptWithKey:(id)arg1;
+- (id)AES128EncryptWithKey:(id)arg1;
+
+@end
