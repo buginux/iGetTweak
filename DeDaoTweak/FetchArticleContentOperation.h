@@ -10,6 +10,8 @@
 
 @interface FetchArticleContentOperation : AsyncOperation
 
-- (instancetype)initWithArticleId:(NSInteger)articleId index:(NSInteger)index;
+- (instancetype)initWithArticleId:(NSInteger)articleId
+                             page:(NSInteger)page
+                            index:(NSInteger)index;
 
 @end

@@ -12,6 +12,8 @@
 
 @property (nonatomic, strong) NSArray *articleIds;
 
-- (instancetype)initWithSubscribeId:(NSNumber *)subscribeId page:(NSInteger)page;
+- (instancetype)initWithSubscribeId:(NSNumber *)subscribeId
+                               page:(NSInteger)page
+                           pageSize:(NSInteger)pageSize;
 
 @end

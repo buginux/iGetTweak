@@ -20,23 +20,40 @@
 	NSString *title = self.dataArray[indexPath.section];
 	if ([title isEqualToString:@"下载文章"]) {
 
+		NSInteger pageSize = 5;
+
 		dispatch_queue_t downloadQueue = dispatch_get_global_queue(QOS_CLASS_UTILITY, 0);
 
 		dispatch_async(downloadQueue, ^{
-			FetchArticleListOperation *operation = [[FetchArticleListOperation alloc] initWithSubscribeId:self.detailData.subscribe_id page:1];
+
+			NSInteger currentPage = 0;
+			FetchArticleListOperation *operation = [[FetchArticleListOperation alloc] initWithSubscribeId:self.detailData.subscribe_id page:currentPage pageSize:pageSize];
 			[[DownloadQueueManager sharedManager] addOperation:operation];
 			[[DownloadQueueManager sharedManager] waitUntilAllOperationsAreFinished];
 
-			if ([operation.articleIds count] == 0) {
-				return;
+			while(operation.articleIds.count == pageSize) {
+				operation = [[FetchArticleListOperation alloc] initWithSubscribeId:self.detailData.subscribe_id page:currentPage pageSize:pageSize];
+				[[DownloadQueueManager sharedManager] addOperation:operation];
+				[[DownloadQueueManager sharedManager] waitUntilAllOperationsAreFinished];
+
+				for(NSInteger i = 0; i < operation.articleIds.count; i++) {
+					NSInteger articleId = [operation.articleIds[i] integerValue];
+					FetchArticleContentOperation *articleOperation = [[FetchArticleContentOperation alloc] initWithArticleId:articleId page:currentPage index:i];
+					[[DownloadQueueManager sharedManager] addOperation:articleOperation];
+				}
+
+				[[DownloadQueueManager sharedManager] waitUntilAllOperationsAreFinished];
+
+				++currentPage;
 			}
 
-			NSInteger articleId = [operation.articleIds.firstObject integerValue];
-			FetchArticleContentOperation *articleOperation = [[FetchArticleContentOperation alloc] initWithArticleId:articleId index:1];
-			[[DownloadQueueManager sharedManager] addOperation:articleOperation];
+			dispatch_async(dispatch_get_main_queue(), ^{
+				NSString *message = [NSString stringWithFormat:@"下载完成，共 %ld 页，每页 %ld 篇", currentPage, pageSize];
+       			UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"title" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+       			[alert show];
+			});
+
 		});
-
-
 	}
 }
 
