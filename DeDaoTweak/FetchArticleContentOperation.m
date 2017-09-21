@@ -68,11 +68,39 @@
             [self finish];
             return;
         }
+        
+        NSString *articleTitle = [article objectForKey:@"article_title"];
+        if ([articleTitle length] == 0) {
+            articleTitle = @"未获取到文章名称";
+        }
 
         SubscribeInfoViewModelV2 *viewModel = [objc_getClass("SubscribeInfoViewModelV2") new];
         NSString *aesKey = [viewModel getArticleAESKey:(long long)self.articleId articleSecret:encodekey];
         NSData *encodeHtmlData = [encodeHtml dataUsingEncoding:NSUTF8StringEncoding];
         NSString *content = [encodeHtmlData AES128Decrypt:aesKey];
+        
+        if ([self.subscribeTitle length] == 0) {
+            self.subscribeTitle = @"未知专栏";
+        }
+        
+        NSString *documentDirectoryPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
+        
+        NSString *allArticlesDirectory = [@"articles" stringByAppendingPathComponent:self.subscribeTitle];
+        NSString *subscribeDirectoryPath = [documentDirectoryPath stringByAppendingPathComponent:allArticlesDirectory];
+        
+        BOOL createSuccess = [[NSFileManager defaultManager] createDirectoryAtPath:subscribeDirectoryPath withIntermediateDirectories:YES attributes:nil error:nil];
+        if (!createSuccess) {
+            [self finish];
+            return;
+        }
+        
+        NSString *filename = [NSString stringWithFormat:@"%@.html", articleTitle];
+        NSString *articleFilePath = [subscribeDirectoryPath stringByAppendingPathComponent:filename];
+        [content writeToFile:articleFilePath atomically:YES encoding:NSUTF8StringEncoding error:nil];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [objc_getClass("SVProgressHUD") showSuccessWithStatus:@"下载完成"];
+        });
         
         [self finish];
     }];

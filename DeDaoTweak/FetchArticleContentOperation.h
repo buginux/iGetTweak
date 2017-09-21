@@ -14,4 +14,6 @@
                              page:(NSInteger)page
                             index:(NSInteger)index;
 
+@property (nonatomic, strong) NSString *subscribeTitle;
+
 @end

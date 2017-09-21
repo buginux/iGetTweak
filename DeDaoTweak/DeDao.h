@@ -20,6 +20,7 @@
 @interface FMSubscribeDetailEntity : NSObject
 
 @property(retain, nonatomic) NSNumber *subscribe_id; // @synthesize subscribe_id=_subscribe_id;
+@property(retain, nonatomic) NSString *subscribe_title; // @synthesize subscribe_title=_subscribe_title;
 
 @end
 

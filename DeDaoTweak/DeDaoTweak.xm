@@ -39,6 +39,7 @@
 				for(NSInteger i = 0; i < operation.articleIds.count; i++) {
 					NSInteger articleId = [operation.articleIds[i] integerValue];
 					FetchArticleContentOperation *articleOperation = [[FetchArticleContentOperation alloc] initWithArticleId:articleId page:currentPage index:i];
+					articleOperation.subscribeTitle = self.detailData.subscribe_title;
 					[[DownloadQueueManager sharedManager] addOperation:articleOperation];
 				}
 
