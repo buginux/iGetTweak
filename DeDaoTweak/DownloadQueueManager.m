@@ -38,5 +38,9 @@
     [self.queue addOperation:operation];
 }
 
+- (void)waitUntilAllOperationsAreFinished {
+    [self.queue waitUntilAllOperationsAreFinished];
+}
+
 
 @end

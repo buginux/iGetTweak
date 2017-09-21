@@ -13,5 +13,6 @@
 + (instancetype)sharedManager;
 
 - (void)addOperation:(NSOperation *)operation;
+- (void)waitUntilAllOperationsAreFinished;
 
 @end

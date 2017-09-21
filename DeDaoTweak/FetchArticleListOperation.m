@@ -65,12 +65,6 @@
         
         self.articleIds = articleIds;
         
-        NSLog(@"%s ____________________ %@", __PRETTY_FUNCTION__, articleIds);
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [objc_getClass("SVProgressHUD") showSuccessWithStatus:[NSString stringWithFormat:@"第 %ld 页文章下载完成", (long)self.page]];
-        });
-        
         [self finish];
     }];
     

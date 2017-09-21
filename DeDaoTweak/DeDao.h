@@ -12,6 +12,8 @@
 
 + (id)GetInstance;
 - (void)FM_GetColumnArticlesByColumnId:(id)arg1 page:(id)arg2 pageSize:(id)arg3 order:(id)arg4 callBack:(void (^)(long long, NSDictionary *, BOOL))arg5;
+- (void)FM_GetArticleContentById:(long long)arg1 callBack:(void (^)(long long, NSDictionary *, BOOL))arg2;
+
 
 @end
 
