@@ -96,11 +96,10 @@
         
         NSString *filename = [NSString stringWithFormat:@"%@.html", articleTitle];
         NSString *articleFilePath = [subscribeDirectoryPath stringByAppendingPathComponent:filename];
-        [content writeToFile:articleFilePath atomically:YES encoding:NSUTF8StringEncoding error:nil];
         
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [objc_getClass("SVProgressHUD") showSuccessWithStatus:@"下载完成"];
-        });
+        if (![[NSFileManager defaultManager] fileExistsAtPath:articleTitle]) {
+            [content writeToFile:articleFilePath atomically:YES encoding:NSUTF8StringEncoding error:nil];
+        }
         
         [self finish];
     }];
