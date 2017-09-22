@@ -94,7 +94,7 @@
             return;
         }
         
-        NSString *filename = [NSString stringWithFormat:@"%@.html", articleTitle];
+        NSString *filename = [NSString stringWithFormat:@"%ld-%@.html", (long)self.articleId, articleTitle];
         NSString *articleFilePath = [subscribeDirectoryPath stringByAppendingPathComponent:filename];
         
         if (![[NSFileManager defaultManager] fileExistsAtPath:articleTitle]) {

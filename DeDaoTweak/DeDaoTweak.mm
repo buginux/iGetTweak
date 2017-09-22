@@ -1,4 +1,4 @@
-#line 1 "/Users/justwe/iOSReverse/DeDao/DeDaoTweak/DeDaoTweak/DeDaoTweak.xm"
+#line 1 "/Users/buginux/iOSReverse/LuoJiFM/iGetTweak/DeDaoTweak/DeDaoTweak.xm"
 
 
 #import "DeDao.h"
@@ -30,7 +30,7 @@
 @class SubscribeSettingsViewControllerV2; @class SVProgressHUD; 
 static void (*_logos_orig$_ungrouped$SubscribeSettingsViewControllerV2$initDatas)(_LOGOS_SELF_TYPE_NORMAL SubscribeSettingsViewControllerV2* _LOGOS_SELF_CONST, SEL); static void _logos_method$_ungrouped$SubscribeSettingsViewControllerV2$initDatas(_LOGOS_SELF_TYPE_NORMAL SubscribeSettingsViewControllerV2* _LOGOS_SELF_CONST, SEL); static void (*_logos_orig$_ungrouped$SubscribeSettingsViewControllerV2$tableView$didSelectRowAtIndexPath$)(_LOGOS_SELF_TYPE_NORMAL SubscribeSettingsViewControllerV2* _LOGOS_SELF_CONST, SEL, UITableView *, NSIndexPath *); static void _logos_method$_ungrouped$SubscribeSettingsViewControllerV2$tableView$didSelectRowAtIndexPath$(_LOGOS_SELF_TYPE_NORMAL SubscribeSettingsViewControllerV2* _LOGOS_SELF_CONST, SEL, UITableView *, NSIndexPath *); 
 static __inline__ __attribute__((always_inline)) __attribute__((unused)) Class _logos_static_class_lookup$SVProgressHUD(void) { static Class _klass; if(!_klass) { _klass = objc_getClass("SVProgressHUD"); } return _klass; }
-#line 8 "/Users/justwe/iOSReverse/DeDao/DeDaoTweak/DeDaoTweak/DeDaoTweak.xm"
+#line 8 "/Users/buginux/iOSReverse/LuoJiFM/iGetTweak/DeDaoTweak/DeDaoTweak.xm"
 
 
 static void _logos_method$_ungrouped$SubscribeSettingsViewControllerV2$initDatas(_LOGOS_SELF_TYPE_NORMAL SubscribeSettingsViewControllerV2* _LOGOS_SELF_CONST __unused self, SEL __unused _cmd) {
@@ -51,10 +51,8 @@ static void _logos_method$_ungrouped$SubscribeSettingsViewControllerV2$tableView
 		dispatch_queue_t downloadQueue = dispatch_get_global_queue(QOS_CLASS_UTILITY, 0);
 
 		dispatch_async(downloadQueue, ^{
-
 			NSInteger currentPage = 0;
-
-			NSArray *articleIds = [[NSArray alloc] init];
+			NSArray *articleIds = nil;
 			do {
 				FetchArticleListOperation *operation = [[FetchArticleListOperation alloc] initWithSubscribeId:self.detailData.subscribe_id page:currentPage pageSize:pageSize];
 				[[DownloadQueueManager sharedManager] addOperation:operation];
@@ -91,4 +89,4 @@ static void _logos_method$_ungrouped$SubscribeSettingsViewControllerV2$tableView
 
 static __attribute__((constructor)) void _logosLocalInit() {
 {Class _logos_class$_ungrouped$SubscribeSettingsViewControllerV2 = objc_getClass("SubscribeSettingsViewControllerV2"); MSHookMessageEx(_logos_class$_ungrouped$SubscribeSettingsViewControllerV2, @selector(initDatas), (IMP)&_logos_method$_ungrouped$SubscribeSettingsViewControllerV2$initDatas, (IMP*)&_logos_orig$_ungrouped$SubscribeSettingsViewControllerV2$initDatas);MSHookMessageEx(_logos_class$_ungrouped$SubscribeSettingsViewControllerV2, @selector(tableView:didSelectRowAtIndexPath:), (IMP)&_logos_method$_ungrouped$SubscribeSettingsViewControllerV2$tableView$didSelectRowAtIndexPath$, (IMP*)&_logos_orig$_ungrouped$SubscribeSettingsViewControllerV2$tableView$didSelectRowAtIndexPath$);} }
-#line 66 "/Users/justwe/iOSReverse/DeDao/DeDaoTweak/DeDaoTweak/DeDaoTweak.xm"
+#line 64 "/Users/buginux/iOSReverse/LuoJiFM/iGetTweak/DeDaoTweak/DeDaoTweak.xm"
