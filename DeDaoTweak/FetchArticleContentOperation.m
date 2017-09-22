@@ -97,7 +97,7 @@
         NSString *filename = [NSString stringWithFormat:@"%ld-%@.html", (long)self.articleId, articleTitle];
         NSString *articleFilePath = [subscribeDirectoryPath stringByAppendingPathComponent:filename];
         
-        if (![[NSFileManager defaultManager] fileExistsAtPath:articleTitle]) {
+        if (![[NSFileManager defaultManager] fileExistsAtPath:articleFilePath]) {
             [content writeToFile:articleFilePath atomically:YES encoding:NSUTF8StringEncoding error:nil];
         }
         
