@@ -8,6 +8,7 @@
 
 #import "AsyncOperation.h"
 
+/** 专栏文章内容详情 */
 @interface FetchArticleContentOperation : AsyncOperation
 
 - (instancetype)initWithArticleId:(NSInteger)articleId

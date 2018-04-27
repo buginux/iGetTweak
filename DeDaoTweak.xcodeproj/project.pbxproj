@@ -19,6 +19,10 @@
 		23F25ADF1F72ACCA00F790FE /* DownloadQueueManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F25ADD1F72ACCA00F790FE /* DownloadQueueManager.m */; };
 		23F25B0F1F73F41E00F790FE /* FetchArticleContentOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 23F25B0D1F73F41E00F790FE /* FetchArticleContentOperation.h */; };
 		23F25B101F73F41E00F790FE /* FetchArticleContentOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F25B0E1F73F41E00F790FE /* FetchArticleContentOperation.m */; };
+		A261FA64209324CD0058FE1F /* FetchLessonListOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = A261FA62209324CD0058FE1F /* FetchLessonListOperation.h */; };
+		A261FA65209324CD0058FE1F /* FetchLessonListOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A261FA63209324CD0058FE1F /* FetchLessonListOperation.m */; };
+		A261FA682093281F0058FE1F /* FetchLessonContentOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = A261FA662093281F0058FE1F /* FetchLessonContentOperation.h */; };
+		A261FA692093281F0058FE1F /* FetchLessonContentOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A261FA672093281F0058FE1F /* FetchLessonContentOperation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +44,10 @@
 		23F25ADD1F72ACCA00F790FE /* DownloadQueueManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadQueueManager.m; sourceTree = "<group>"; };
 		23F25B0D1F73F41E00F790FE /* FetchArticleContentOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FetchArticleContentOperation.h; sourceTree = "<group>"; };
 		23F25B0E1F73F41E00F790FE /* FetchArticleContentOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchArticleContentOperation.m; sourceTree = "<group>"; };
+		A261FA62209324CD0058FE1F /* FetchLessonListOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FetchLessonListOperation.h; sourceTree = "<group>"; };
+		A261FA63209324CD0058FE1F /* FetchLessonListOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FetchLessonListOperation.m; sourceTree = "<group>"; };
+		A261FA662093281F0058FE1F /* FetchLessonContentOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FetchLessonContentOperation.h; sourceTree = "<group>"; };
+		A261FA672093281F0058FE1F /* FetchLessonContentOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FetchLessonContentOperation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,14 +99,18 @@
 				23F25AC81F71497300F790FE /* DeDaoTweak.mm */,
 				23F25AC21F71497300F790FE /* Package */,
 				23F25AC51F71497300F790FE /* Supporting Files */,
-				23F25AD41F72A0E400F790FE /* FetchArticleListOperation.h */,
-				23F25AD51F72A0E400F790FE /* FetchArticleListOperation.m */,
-				23F25B0D1F73F41E00F790FE /* FetchArticleContentOperation.h */,
-				23F25B0E1F73F41E00F790FE /* FetchArticleContentOperation.m */,
 				23F25AD81F72A2B700F790FE /* AsyncOperation.h */,
 				23F25AD91F72A2B700F790FE /* AsyncOperation.m */,
 				23F25ADC1F72ACCA00F790FE /* DownloadQueueManager.h */,
 				23F25ADD1F72ACCA00F790FE /* DownloadQueueManager.m */,
+				23F25AD41F72A0E400F790FE /* FetchArticleListOperation.h */,
+				23F25AD51F72A0E400F790FE /* FetchArticleListOperation.m */,
+				23F25B0D1F73F41E00F790FE /* FetchArticleContentOperation.h */,
+				23F25B0E1F73F41E00F790FE /* FetchArticleContentOperation.m */,
+				A261FA62209324CD0058FE1F /* FetchLessonListOperation.h */,
+				A261FA63209324CD0058FE1F /* FetchLessonListOperation.m */,
+				A261FA662093281F0058FE1F /* FetchLessonContentOperation.h */,
+				A261FA672093281F0058FE1F /* FetchLessonContentOperation.m */,
 			);
 			path = DeDaoTweak;
 			sourceTree = "<group>";
@@ -160,6 +172,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				23F25ADE1F72ACCA00F790FE /* DownloadQueueManager.h in Headers */,
+				A261FA682093281F0058FE1F /* FetchLessonContentOperation.h in Headers */,
+				A261FA64209324CD0058FE1F /* FetchLessonListOperation.h in Headers */,
 				23F25AD61F72A0E400F790FE /* FetchArticleListOperation.h in Headers */,
 				23F25B0F1F73F41E00F790FE /* FetchArticleContentOperation.h in Headers */,
 				23F25ADA1F72A2B700F790FE /* AsyncOperation.h in Headers */,
@@ -254,10 +268,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A261FA65209324CD0058FE1F /* FetchLessonListOperation.m in Sources */,
 				23F25B101F73F41E00F790FE /* FetchArticleContentOperation.m in Sources */,
 				23F25ADB1F72A2B700F790FE /* AsyncOperation.m in Sources */,
 				23F25AC91F71497300F790FE /* DeDaoTweak.mm in Sources */,
 				23F25AD71F72A0E400F790FE /* FetchArticleListOperation.m in Sources */,
+				A261FA692093281F0058FE1F /* FetchLessonContentOperation.m in Sources */,
 				23F25ADF1F72ACCA00F790FE /* DownloadQueueManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

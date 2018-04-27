@@ -8,6 +8,7 @@
 
 #import "AsyncOperation.h"
 
+/** 专栏文章列表 */
 @interface FetchArticleListOperation : AsyncOperation
 
 @property (nonatomic, strong) NSArray *articleIds;

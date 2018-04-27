@@ -1,9 +1,11 @@
-#line 1 "/Users/buginux/iOSReverse/LuoJiFM/iGetTweak/DeDaoTweak/DeDaoTweak.xm"
+#line 1 "/Users/buginux/Github/iGetTweak/DeDaoTweak/DeDaoTweak.xm"
 
 
 #import "DeDao.h"
 #import "FetchArticleListOperation.h"
 #import "FetchArticleContentOperation.h"
+#import "FetchLessonListOperation.h"
+#import "FetchLessonContentOperation.h"
 #import "DownloadQueueManager.h"
 
 
@@ -27,10 +29,10 @@
 #define _LOGOS_RETURN_RETAINED
 #endif
 
-@class SubscribeSettingsViewControllerV2; @class SVProgressHUD; 
-static void (*_logos_orig$_ungrouped$SubscribeSettingsViewControllerV2$initDatas)(_LOGOS_SELF_TYPE_NORMAL SubscribeSettingsViewControllerV2* _LOGOS_SELF_CONST, SEL); static void _logos_method$_ungrouped$SubscribeSettingsViewControllerV2$initDatas(_LOGOS_SELF_TYPE_NORMAL SubscribeSettingsViewControllerV2* _LOGOS_SELF_CONST, SEL); static void (*_logos_orig$_ungrouped$SubscribeSettingsViewControllerV2$tableView$didSelectRowAtIndexPath$)(_LOGOS_SELF_TYPE_NORMAL SubscribeSettingsViewControllerV2* _LOGOS_SELF_CONST, SEL, UITableView *, NSIndexPath *); static void _logos_method$_ungrouped$SubscribeSettingsViewControllerV2$tableView$didSelectRowAtIndexPath$(_LOGOS_SELF_TYPE_NORMAL SubscribeSettingsViewControllerV2* _LOGOS_SELF_CONST, SEL, UITableView *, NSIndexPath *); 
+@class SubscribeSettingsViewControllerV2; @class DDLiveSubjectViewController; @class SVProgressHUD; 
+static void (*_logos_orig$_ungrouped$SubscribeSettingsViewControllerV2$initDatas)(_LOGOS_SELF_TYPE_NORMAL SubscribeSettingsViewControllerV2* _LOGOS_SELF_CONST, SEL); static void _logos_method$_ungrouped$SubscribeSettingsViewControllerV2$initDatas(_LOGOS_SELF_TYPE_NORMAL SubscribeSettingsViewControllerV2* _LOGOS_SELF_CONST, SEL); static void (*_logos_orig$_ungrouped$SubscribeSettingsViewControllerV2$tableView$didSelectRowAtIndexPath$)(_LOGOS_SELF_TYPE_NORMAL SubscribeSettingsViewControllerV2* _LOGOS_SELF_CONST, SEL, UITableView *, NSIndexPath *); static void _logos_method$_ungrouped$SubscribeSettingsViewControllerV2$tableView$didSelectRowAtIndexPath$(_LOGOS_SELF_TYPE_NORMAL SubscribeSettingsViewControllerV2* _LOGOS_SELF_CONST, SEL, UITableView *, NSIndexPath *); static void (*_logos_orig$_ungrouped$DDLiveSubjectViewController$shareBtnClick$)(_LOGOS_SELF_TYPE_NORMAL DDLiveSubjectViewController* _LOGOS_SELF_CONST, SEL, id); static void _logos_method$_ungrouped$DDLiveSubjectViewController$shareBtnClick$(_LOGOS_SELF_TYPE_NORMAL DDLiveSubjectViewController* _LOGOS_SELF_CONST, SEL, id); 
 static __inline__ __attribute__((always_inline)) __attribute__((unused)) Class _logos_static_class_lookup$SVProgressHUD(void) { static Class _klass; if(!_klass) { _klass = objc_getClass("SVProgressHUD"); } return _klass; }
-#line 8 "/Users/buginux/iOSReverse/LuoJiFM/iGetTweak/DeDaoTweak/DeDaoTweak.xm"
+#line 10 "/Users/buginux/Github/iGetTweak/DeDaoTweak/DeDaoTweak.xm"
 
 
 static void _logos_method$_ungrouped$SubscribeSettingsViewControllerV2$initDatas(_LOGOS_SELF_TYPE_NORMAL SubscribeSettingsViewControllerV2* _LOGOS_SELF_CONST __unused self, SEL __unused _cmd) {
@@ -87,6 +89,38 @@ static void _logos_method$_ungrouped$SubscribeSettingsViewControllerV2$tableView
 			
 
 
+
+
+
+static void _logos_method$_ungrouped$DDLiveSubjectViewController$shareBtnClick$(_LOGOS_SELF_TYPE_NORMAL DDLiveSubjectViewController* _LOGOS_SELF_CONST __unused self, SEL __unused _cmd, id arg1) {
+	dispatch_queue_t downloadQueue = dispatch_get_global_queue(QOS_CLASS_UTILITY, 0);
+
+	dispatch_async(downloadQueue, ^{
+		
+		FetchLessonListOperation *operation = [[FetchLessonListOperation alloc] initWithSubjectId:self.subjectId];
+		[[DownloadQueueManager sharedManager] addOperation:operation];
+		[[DownloadQueueManager sharedManager] waitUntilAllOperationsAreFinished];
+
+		NSArray *audioIds = operation.audioIds;
+		NSArray *titles = operation.titles;
+
+		for(NSInteger i = 0; i < audioIds.count; i++) {
+			NSString *title = titles[i];
+			FetchLessonContentOperation *contentOperation = [[FetchLessonContentOperation alloc] initWithAudioId:audioIds[i] title:title];
+			[[DownloadQueueManager sharedManager] addOperation:contentOperation];
+		}
+		[[DownloadQueueManager sharedManager] waitUntilAllOperationsAreFinished];
+
+		dispatch_async(dispatch_get_main_queue(), ^{
+			[_logos_static_class_lookup$SVProgressHUD() dismiss];
+			NSString *message = [NSString stringWithFormat:@"下载完成，共 %ld 篇", (long)[audioIds count]];
+       		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"title" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+       		[alert show];
+		});
+	});
+}
+
+
 static __attribute__((constructor)) void _logosLocalInit() {
-{Class _logos_class$_ungrouped$SubscribeSettingsViewControllerV2 = objc_getClass("SubscribeSettingsViewControllerV2"); MSHookMessageEx(_logos_class$_ungrouped$SubscribeSettingsViewControllerV2, @selector(initDatas), (IMP)&_logos_method$_ungrouped$SubscribeSettingsViewControllerV2$initDatas, (IMP*)&_logos_orig$_ungrouped$SubscribeSettingsViewControllerV2$initDatas);MSHookMessageEx(_logos_class$_ungrouped$SubscribeSettingsViewControllerV2, @selector(tableView:didSelectRowAtIndexPath:), (IMP)&_logos_method$_ungrouped$SubscribeSettingsViewControllerV2$tableView$didSelectRowAtIndexPath$, (IMP*)&_logos_orig$_ungrouped$SubscribeSettingsViewControllerV2$tableView$didSelectRowAtIndexPath$);} }
-#line 64 "/Users/buginux/iOSReverse/LuoJiFM/iGetTweak/DeDaoTweak/DeDaoTweak.xm"
+{Class _logos_class$_ungrouped$SubscribeSettingsViewControllerV2 = objc_getClass("SubscribeSettingsViewControllerV2"); MSHookMessageEx(_logos_class$_ungrouped$SubscribeSettingsViewControllerV2, @selector(initDatas), (IMP)&_logos_method$_ungrouped$SubscribeSettingsViewControllerV2$initDatas, (IMP*)&_logos_orig$_ungrouped$SubscribeSettingsViewControllerV2$initDatas);MSHookMessageEx(_logos_class$_ungrouped$SubscribeSettingsViewControllerV2, @selector(tableView:didSelectRowAtIndexPath:), (IMP)&_logos_method$_ungrouped$SubscribeSettingsViewControllerV2$tableView$didSelectRowAtIndexPath$, (IMP*)&_logos_orig$_ungrouped$SubscribeSettingsViewControllerV2$tableView$didSelectRowAtIndexPath$);Class _logos_class$_ungrouped$DDLiveSubjectViewController = objc_getClass("DDLiveSubjectViewController"); MSHookMessageEx(_logos_class$_ungrouped$DDLiveSubjectViewController, @selector(shareBtnClick:), (IMP)&_logos_method$_ungrouped$DDLiveSubjectViewController$shareBtnClick$, (IMP*)&_logos_orig$_ungrouped$DDLiveSubjectViewController$shareBtnClick$);} }
+#line 98 "/Users/buginux/Github/iGetTweak/DeDaoTweak/DeDaoTweak.xm"

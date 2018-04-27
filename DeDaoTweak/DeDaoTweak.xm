@@ -3,6 +3,8 @@
 #import "DeDao.h"
 #import "FetchArticleListOperation.h"
 #import "FetchArticleContentOperation.h"
+#import "FetchLessonListOperation.h"
+#import "FetchLessonContentOperation.h"
 #import "DownloadQueueManager.h"
 
 %hook SubscribeSettingsViewControllerV2
@@ -59,5 +61,37 @@
    //     	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"title" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
    //     [alert show];
 			// });
+
+%end
+
+%hook DDLiveSubjectViewController
+
+- (void)shareBtnClick:(id)arg1 {
+	dispatch_queue_t downloadQueue = dispatch_get_global_queue(QOS_CLASS_UTILITY, 0);
+
+	dispatch_async(downloadQueue, ^{
+		
+		FetchLessonListOperation *operation = [[FetchLessonListOperation alloc] initWithSubjectId:self.subjectId];
+		[[DownloadQueueManager sharedManager] addOperation:operation];
+		[[DownloadQueueManager sharedManager] waitUntilAllOperationsAreFinished];
+
+		NSArray *audioIds = operation.audioIds;
+		NSArray *titles = operation.titles;
+
+		for(NSInteger i = 0; i < audioIds.count; i++) {
+			NSString *title = titles[i];
+			FetchLessonContentOperation *contentOperation = [[FetchLessonContentOperation alloc] initWithAudioId:audioIds[i] title:title];
+			[[DownloadQueueManager sharedManager] addOperation:contentOperation];
+		}
+		[[DownloadQueueManager sharedManager] waitUntilAllOperationsAreFinished];
+
+		dispatch_async(dispatch_get_main_queue(), ^{
+			[%c(SVProgressHUD) dismiss];
+			NSString *message = [NSString stringWithFormat:@"下载完成，共 %ld 篇", (long)[audioIds count]];
+       		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"title" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+       		[alert show];
+		});
+	});
+}
 
 %end
